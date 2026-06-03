@@ -1,0 +1,132 @@
+import flet as ft
+import os
+
+def main(page: ft.Page):
+    page.title = "Kenny - Engineering Portfolio"
+    page.theme_mode = "dark"
+    page.bgcolor = "#111111"
+    page.scroll = "auto"
+    page.padding = 0
+    page.spacing = 0
+
+    # ---------------- SYSTEM FUNCTION TO OPEN LOCAL PDFs ----------------
+    def open_pdf(filename):
+        # STRATEGY: Try the script folder first, fallback to an absolute hardcoded path if Windows is acting up
+        current_script_dir = os.path.dirname(os.path.abspath(__file__))
+        pdf_path = os.path.join(current_script_dir, filename)
+        
+        # Hardcoded fallback path based on your exact Windows user folder
+        fallback_path = os.path.join(r"C:\Users\kevin\OneDrive\Desktop\Kenny Codes", filename)
+        
+        print(f"\n[SYSTEM] Trying primary path: {pdf_path}")
+        if os.path.exists(pdf_path):
+            print("[SUCCESS] Found in script directory! Opening...")
+            os.startfile(pdf_path)
+            return
+
+        print(f"[SYSTEM] Trying fallback path: {fallback_path}")
+        if os.path.exists(fallback_path):
+            print("[SUCCESS] Found in absolute desktop directory! Opening...")
+            os.startfile(fallback_path)
+            return
+            
+        print("[ERROR] Could not locate the file in either path. Double-check the spelling!")
+
+    # ---------------- DYNAMIC CONTENT CONTAINER ----------------
+    content_area = ft.Column()
+
+    def show_section(section_control):
+        content_area.controls.clear()
+        content_area.controls.append(section_control)
+        page.update()
+
+    # ---------------- PORTFOLIO DATA SECTIONS ----------------
+    timeline = ft.Column([
+        ft.Text("📅 Project Timeline", size=24, weight="bold", color="white"),
+        ft.Text("• Week 1: Project planning and initial idea contribution", size=16, color="#B0B0B0"),
+        ft.Text("• Week 2: UI layout configuration and initial Flet setup", size=16, color="#B0B0B0"),
+        ft.Text("• Week 3: Functional feature engineering and implementation", size=16, color="#B0B0B0"),
+        ft.Text("• Week 4: Rigid software testing, code validation, and debugging", size=16, color="#B0B0B0"),
+        ft.Text("• Week 5: Live application deployment and documentation", size=16, color="#B0B0B0"),
+    ], spacing=12)
+
+    matlab = ft.Column([
+        ft.Text("🎓 MATLAB Achievement Hub", size=24, weight="bold", color="white"),
+        ft.Text("Verified MathWorks Course Certifications:", size=16, weight="bold", color="#888888"),
+        ft.Text("Click a green credential row below to view your attached PDF document:", size=14, color="#B0B0B0"),
+        ft.Text(""), 
+        
+        ft.TextButton(content=ft.Text("1. 📄 View MATLAB Onramp Certificate", color="#4caf50", size=15), on_click=lambda e: open_pdf("matlab_onramp.pdf")),
+        ft.TextButton(content=ft.Text("2. 📄 View Simulink Onramp Certificate", color="#4caf50", size=15), on_click=lambda e: open_pdf("simulink_onramp.pdf")),
+        ft.TextButton(content=ft.Text("3. 📄 View Signal Processing Onramp Certificate", color="#4caf50", size=15), on_click=lambda e: open_pdf("signal_onramp.pdf")),
+        ft.TextButton(content=ft.Text("4. 📄 View Control Systems Onramp Certificate", color="#4caf50", size=15), on_click=lambda e: open_pdf("controls_onramp.pdf")),
+        ft.TextButton(content=ft.Text("5. 📄 View Image Processing Onramp Certificate", color="#4caf50", size=15), on_click=lambda e: open_pdf("image_onramp.pdf")),
+        
+        ft.TextButton(content=ft.Text("6. 🏆 Machine Learning Onramp", color="#555555", size=15)),
+        ft.TextButton(content=ft.Text("7. 🏆 Deep Learning Onramp", color="#555555", size=15)),
+        ft.TextButton(content=ft.Text("8. 🏆 MATLAB Fundamentals", color="#555555", size=15)),
+        
+        ft.Text(""), 
+        ft.Text("💡 Note: Certificates will open instantly in your default PDF reader or web browser.", size=12, italic=True, color="#555555"),
+    ], spacing=4)
+
+    blog = ft.Column([
+        ft.Text("📝 Technical Blog - Confidence in Concepts", size=24, weight="bold", color="white"),
+        ft.Text("📌 Topic: Cost Analysis in Engineering Optimization", size=18, weight="bold", color="#888888"),
+        ft.Text(
+            "Mathematical Formulation:\n"
+            "Total Cost = Σ [i=1 to n] (Qi × Pi) + Overheads\n\n"
+            "Where Qi = Quantity, Pi = Unit Price, and Overheads = Operating Expenses",
+            size=15, color="#B0B0B0"
+        ),
+    ], spacing=12)
+
+    github = ft.Column([
+        ft.Text("💻 GitHub Evidence & Contribution Logs", size=24, weight="bold", color="white"),
+        ft.Text("📌 Commit History & Documentation:", size=18, weight="bold", color="#888888"),
+        ft.Text("Individual repository impact logs and feature deployment verification tracking.", size=15, color="#B0B0B0"),
+    ], spacing=12)
+
+    # ---------------- NAVIGATION BUTTONS ----------------
+    nav_buttons = ft.Row([
+        ft.Button("Timeline", on_click=lambda e: show_section(timeline), bgcolor="#333333", color="white"),
+        ft.Button("MATLAB Hub", on_click=lambda e: show_section(matlab), bgcolor="#333333", color="white"),
+        ft.Button("Blog", on_click=lambda e: show_section(blog), bgcolor="#333333", color="white"),
+        ft.Button("GitHub", on_click=lambda e: show_section(github), bgcolor="#333333", color="white"),
+    ], spacing=12)
+
+    # ---------------- PREMIUM HERO SPLIT SECTION ----------------
+    hero_section = ft.Container(
+        content=ft.Row([
+            ft.Column([
+                ft.Text("Hi, I'm Kenny", size=22, color="white", weight="bold"),
+                ft.Text("Mechanical\nEngineering", size=50, weight="bold", color="white", height=150),
+                ft.Text(
+                    "Mechanical Engineering Student specializing in structural calculations, computed optimization modeling, and core programming paradigms.", 
+                    size=16, color="#888888", width=420
+                ),
+                ft.Text(""), 
+                nav_buttons
+            ], spacing=5),
+            
+            ft.VerticalDivider(expand=True, color="transparent"),
+            
+            ft.Container(
+                width=320,
+                height=320,
+                bgcolor="#222222", 
+                border_radius=160,
+            )
+        ]), 
+        padding=60,
+        height=480,
+    )
+
+    show_section(timeline)
+
+    page.add(
+        hero_section,
+        ft.Container(content=content_area, padding=60)
+    )
+
+ft.run(main)
