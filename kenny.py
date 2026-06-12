@@ -142,6 +142,8 @@ def main(page: ft.Page):
         cert_button("📄 View ICR PDF", "ICR_Chomore_K_updated.pdf"),
         ft.Text("Ball Mill Site Visit — How Load IQ Was Born", size=18, weight="bold", color="white"),
         video_button("▶ Open Site Visit Video", "WhatsApp Video 2026-06-01 at 12.50.37 AM.mp4"),
+        ft.Text("My Individual Contribution", size=18, weight="bold", color="white"),
+        video_button("▶ Open My Individual Contribution Video", "WhatsApp Video2 2026-06-01 at 12.50.37 AM.mp4"),
     ], spacing=12)
 
     github = ft.Column([

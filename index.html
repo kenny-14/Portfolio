@@ -424,6 +424,29 @@
       font-size: 0.7rem;
     }
 
+    /* VLOG */
+    .vlog-card {
+      max-width: 900px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .vlog-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .vlog-video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+      background: #05070d;
+      border-radius: 6px;
+    }
+
     /* CONTACT */
     .contact-inner {
       max-width: 600px;
@@ -517,6 +540,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#vlog">Vlog</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -646,9 +670,22 @@
     </div>
   </section>
 
+  <!-- VLOG -->
+  <section id="vlog">
+    <div class="section-label">// 04 — Vlog</div>
+    <h2>My Individual Contribution</h2>
+    <div class="vlog-card">
+      <div class="vlog-title">My Individual Contribution</div>
+      <video class="vlog-video" controls preload="metadata">
+        <source src="WhatsApp%20Video2%202026-06-01%20at%2012.50.37%20AM.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact">
-    <div class="section-label">// 04 — Contact</div>
+    <div class="section-label">// 05 — Contact</div>
     <h2>Get In Touch</h2>
     <div class="contact-inner">
       <div class="contact-links">
