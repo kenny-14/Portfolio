@@ -424,6 +424,47 @@
       font-size: 0.7rem;
     }
 
+    /* EVIDENCE */
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      max-width: 1000px;
+    }
+
+    .evidence-link {
+      display: block;
+      min-height: 120px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.3rem;
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .evidence-link:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(0,229,255,0.08);
+    }
+
+    .evidence-type {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+
+    .evidence-name {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
     /* VLOG */
     .vlog-card {
       max-width: 900px;
@@ -540,6 +581,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#evidence">Evidence</a></li>
       <li><a href="#vlog">Vlog</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -555,7 +597,7 @@
       </p>
       <div class="hero-btns">
         <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        <a href="#evidence" class="btn btn-outline">View Evidence</a>
       </div>
     </div>
     <div class="orb"></div>
@@ -670,9 +712,45 @@
     </div>
   </section>
 
+  <!-- EVIDENCE -->
+  <section id="evidence">
+    <div class="section-label">// 04 — Evidence</div>
+    <h2>Reports & Certificates</h2>
+    <div class="evidence-grid">
+      <a class="evidence-link" href="ICR_Chomore_K_updated.pdf" target="_blank">
+        <div class="evidence-type">Report</div>
+        <div class="evidence-name">Individual Contribution Report</div>
+      </a>
+      <a class="evidence-link" href="matlab_onramp.pdf.pdf" target="_blank">
+        <div class="evidence-type">Certificate</div>
+        <div class="evidence-name">MATLAB Onramp</div>
+      </a>
+      <a class="evidence-link" href="simulink_onramp.pdf.pdf" target="_blank">
+        <div class="evidence-type">Certificate</div>
+        <div class="evidence-name">Simulink Onramp</div>
+      </a>
+      <a class="evidence-link" href="signal_onramp.pdf.pdf" target="_blank">
+        <div class="evidence-type">Certificate</div>
+        <div class="evidence-name">Signal Processing Onramp</div>
+      </a>
+      <a class="evidence-link" href="controls_onramp.pdf.pdf" target="_blank">
+        <div class="evidence-type">Certificate</div>
+        <div class="evidence-name">Control Systems Onramp</div>
+      </a>
+      <a class="evidence-link" href="image_onramp.pdf.pdf" target="_blank">
+        <div class="evidence-type">Certificate</div>
+        <div class="evidence-name">Image Processing Onramp</div>
+      </a>
+      <a class="evidence-link" href="WhatsApp%20Video%202026-06-01%20at%2012.50.37%20AM.mp4" target="_blank">
+        <div class="evidence-type">Video</div>
+        <div class="evidence-name">Ball Mill Site Visit</div>
+      </a>
+    </div>
+  </section>
+
   <!-- VLOG -->
   <section id="vlog">
-    <div class="section-label">// 04 — Vlog</div>
+    <div class="section-label">// 05 — Vlog</div>
     <h2>My Individual Contribution</h2>
     <div class="vlog-card">
       <div class="vlog-title">My Individual Contribution</div>
@@ -685,7 +763,7 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="section-label">// 05 — Contact</div>
+    <div class="section-label">// 06 — Contact</div>
     <h2>Get In Touch</h2>
     <div class="contact-inner">
       <div class="contact-links">
